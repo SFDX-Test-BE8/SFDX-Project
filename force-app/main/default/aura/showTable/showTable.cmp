@@ -1,0 +1,62 @@
+<aura:component implements="force:lightningQuickActionWithoutHeader,force:hasRecordId,flexipage:availableForAllPageTypes" controller="showTableController">
+    <aura:attribute name="bName" type="String" default="" />
+    <aura:attribute name="status" type="String" default="" />
+    <aura:attribute name="allBatch" type="ApexClass" />
+    <aura:attribute name="wReturn" type="Object[]" />
+    <aura:attribute name="showTable" type="Boolean" default="False"/>
+    <aura:attribute name="selectedValue" type="String" default=""/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <aura:if isTrue="{!v. showTable}">
+        <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+            <thead>
+                <tr class="slds-line-height_reset">
+                    <th class="" scope="col">
+                        <div class="slds-truncate" title="Batch No">No.</div>
+                    </th>
+                    <th class="" scope="col">
+                        <div class="slds-truncate" title="Batch cDate Time">Created Date</div>
+                    </th>
+                    <th class="" scope="col">
+                        <div class="slds-truncate" title="Batch Name">Batch Name</div>
+                    </th>
+                    <th class="" scope="col">
+                        <div class="slds-truncate" title="Status">Status</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <aura:iteration items="{!v.wReturn}" var="wr">
+                    <tr class="slds-hint-parent">
+                        <td data-label="number" scope="row">
+                            <div class="slds-truncate" title="Name">{!wr.nNumber}</div>
+                        </td>
+                        <td data-label="dateTime" scope="row">
+                            <div class="slds-truncate" title="Name">{!wr.nDateTime}</div>
+                        </td>
+                        <td data-label="Name" scope="row">
+                            <div class="slds-truncate" title="Name">{!wr.className}</div>
+                        </td>
+                        <td data-label="Status">
+                            <div class="slds-truncate" title="status">{!wr.status}</div>
+                        </td>
+                    </tr>
+                </aura:iteration>
+            </tbody>
+        </table>
+    </aura:if>
+    
+    <div style="">
+        <lightning:select name="batch" label="choose batch:" aura:id="batch" value="{!v.selectedValue}">
+            <aura:iteration items="{!v.allBatch}" var="ba">
+                <option text="{!ba.Name}" value="{!ba.Name}"/>
+            </aura:iteration>
+        </lightning:select>
+        <div style="align: right">
+            <lightning:button label="Run Batch" onclick="{! c.runBatch }"/>
+        </div>
+        
+    </div>
+    
+</aura:component>

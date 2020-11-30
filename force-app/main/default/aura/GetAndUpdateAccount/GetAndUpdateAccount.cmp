@@ -1,0 +1,32 @@
+<aura:component implements="force:lightningQuickActionWithoutHeader,force:hasRecordId" controller="GetAndUpdateAccountController">
+    <aura:attribute name="Value1" type="String" default="" />
+    <aura:attribute name="Value2" type="String" default="" />
+    <aura:attribute name="Value3" type="String" default="" />
+    
+    <aura:attribute name="accounts" type="Account" />
+    <aura:attribute name="accountString" type="String" />
+    
+    <aura:attribute name="recordId" type="String" />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:registerEvent name="cmpEvent" type="c:callEvent"/>
+    
+    <header class="slds-modal__header">
+        <p style="font-size: 20px;color : #2f2f2f;">Update Record</p>
+    </header>
+    <div class="slds-grid slds-wrap" style="margin-bottom: 10px;">
+        
+        <div class="slds-col slds-size_1-of-2">
+            <lightning:input name="input2" label="Name" value="{! v.Value1}"/>
+        </div>
+        <div class="slds-col slds-size_1-of-2">
+            <lightning:input name="input2" label="Favorite hobby" value="{! v.Value2}"/>
+        </div>
+        <BR/>
+    </div>
+    <footer class="slds-modal__footer">
+        <lightning:button label="Update" onclick="{! c.handleUpdate }"/>
+        <lightning:button label="Cancel" onclick="{! c.handleCancel }"/>
+    </footer>
+    
+</aura:component>

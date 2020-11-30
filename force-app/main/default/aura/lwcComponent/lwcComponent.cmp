@@ -1,0 +1,13 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:lightningQuickActionWithoutHeader,force:hasRecordId" access="global">
+	
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="cmpName" type="String" />
+    <aura:attribute name="cmpFav" type="String" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:registerEvent name="cmpEvent" type="c:callEvent"/>
+    
+	<c:lwcAccount recordId="{!v.recordId}" onclose="{!c.closeAction}" onsubmitrecord="{!c.submitRecord}"></c:lwcAccount>
+
+
+</aura:component>

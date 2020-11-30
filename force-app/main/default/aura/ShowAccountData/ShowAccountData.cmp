@@ -1,0 +1,21 @@
+<aura:component implements="force:lightningQuickActionWithoutHeader,force:hasRecordId,flexipage:availableForAllPageTypes" controller="GetAndUpdateAccountController">
+	<aura:attribute name="Value1" type="String" default="" />
+    <aura:attribute name="Value2" type="String" default="" />
+    
+    <aura:attribute name="accountString" type="String" />
+    
+    <aura:attribute name="recordId" type="String" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler event="c:callEvent" action="{!c.handleComponentEvent}"/>
+    
+    <div class="slds-grid slds-wrap">
+        <div class="slds-col slds-size_1-of-2">
+            <p>Name : <ui:outputText value="{! v.Value1}"/></p>
+            
+        </div>
+        <div class="slds-col slds-size_1-of-2">
+            <p>Favorite Hobby : <ui:outputText value="{! v.Value2}"/></p>
+            
+        </div>
+    </div>
+</aura:component>

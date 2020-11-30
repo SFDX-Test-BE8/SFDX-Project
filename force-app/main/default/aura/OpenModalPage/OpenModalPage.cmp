@@ -1,0 +1,12 @@
+<aura:component implements="force:lightningQuickAction">
+    
+    <aura:attribute name="isModal" type="Boolean" default="False" />
+    
+    <lightning:button label="Click to Open Modal" onclick="{! c.open}" />
+    
+    <aura:if isTrue="{!v.isModal}">
+        <c:ModalPage/>
+    </aura:if>
+    
+	
+</aura:component>

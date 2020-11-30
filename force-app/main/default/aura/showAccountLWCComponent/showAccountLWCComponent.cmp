@@ -1,0 +1,5 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:lightningQuickActionWithoutHeader,force:hasRecordId" access="global">
+
+	<c:lwcShowAccount recordId="{!v.recordId}" ></c:lwcShowAccount>
+
+</aura:component>

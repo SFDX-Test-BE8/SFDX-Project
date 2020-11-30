@@ -1,0 +1,4 @@
+<aura:event type="APPLICATION" description="Event template">
+    <aura:attribute name="cName" type="String"/>
+    <aura:attribute name="cFav" type="String"/>
+</aura:event>
